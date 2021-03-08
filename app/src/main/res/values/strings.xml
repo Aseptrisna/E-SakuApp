@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">E-Saku</string>
+    <string name="app_name">IDA RIAS</string>
+    <string name="email">Email</string>
+    <string name="psw">Password</string>
+    <string name="register">Register</string>
+    <string name="nama">Nama</string>
+    <string name="nomor_headphone">Nomor Telpon</string>
 </resources>
