@@ -2,6 +2,8 @@ package com.omkabel.e_saku.Server;
 
 
 
+import com.omkabel.e_saku.Response.Response_User;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -11,6 +13,22 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiServices {
+
+    @FormUrlEncoded
+    @POST("userregister.php")
+    Call<ResponseBody> UserDaftar(
+            @Field("nama") String nama,
+            @Field("email") String email,
+            @Field("telpon") String telpon,
+            @Field("password") String password
+    );
+    @FormUrlEncoded
+    @POST("userlogin.php")
+    Call<Response_User> UserLogin(
+            @Field("email") String email,
+            @Field("password") String password
+    );
+
 //    @GET("Log.php")
 //    Call<ResponseBody> RequestServer();
 //

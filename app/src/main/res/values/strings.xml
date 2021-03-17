@@ -5,4 +5,7 @@
     <string name="register">Register</string>
     <string name="nama">Nama</string>
     <string name="nomor_headphone">Nomor Telpon</string>
+    <string name="selamat_datang">Selamat Datang.....</string>
+    <string name="profile">Profile</string>
+    <string name="pesan">Pesan</string>
 </resources>

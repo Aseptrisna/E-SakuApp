@@ -1,5 +1,6 @@
 package com.omkabel.e_saku.Features;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +11,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
+import com.omkabel.e_saku.Model.Model_User;
 import com.omkabel.e_saku.R;
 import com.omkabel.e_saku.Utils.Page;
 import com.omkabel.e_saku.View.User;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,7 +35,8 @@ public class Menu_Register extends AppCompatActivity implements User {
     @BindView(R.id.btn_login)
     Button btnLogin;
     Page page;
-
+    com.omkabel.e_saku.Controller.User user;
+    ProgressDialog Loading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -39,6 +44,8 @@ public class Menu_Register extends AppCompatActivity implements User {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu__register);
         ButterKnife.bind(this);
+        user=new com.omkabel.e_saku.Controller.User(this);
+        Loading=new ProgressDialog(this);
     }
 
     public void Signin(View view) {
@@ -46,7 +53,6 @@ public class Menu_Register extends AppCompatActivity implements User {
     }
 
     public void signup(View view) {
-//        Toast.makeText(this, "CROT", Toast.LENGTH_SHORT).show();
         validasi();
     }
 
@@ -64,7 +70,10 @@ public class Menu_Register extends AppCompatActivity implements User {
         }else if(psw.isEmpty()){
             Toast.makeText(this, "Password Tidak boleh kosong", Toast.LENGTH_SHORT).show();
         }else {
-
+            Loading.setMessage("Mohon Tunggu....");
+            Loading.setCancelable(true);
+            Loading.show();
+            user.UserRegsiter(email,nama,telpon,psw);
         }
 
     }
@@ -81,13 +90,28 @@ public class Menu_Register extends AppCompatActivity implements User {
         goto_login();
     }
     @Override
-    public void Berhasil(String Message){
+    public void Berhasil(String message, String Message){
+        Ondismiss(Message);
+        goto_login();
     }
     @Override
     public void Gagal(String Message){
+        Ondismiss(Message);
+
     }
 
     @Override
     public void No_Internet(String Message){
+        Ondismiss(Message);
+    }
+
+    @Override
+    public void Berhasil(List<Model_User> datauser) {
+
+    }
+
+    public void Ondismiss(String Message){
+        Loading.dismiss();
+        Toast.makeText(this, Message, Toast.LENGTH_SHORT).show();
     }
 }
