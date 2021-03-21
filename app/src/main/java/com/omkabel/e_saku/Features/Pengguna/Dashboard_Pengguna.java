@@ -24,7 +24,7 @@ public class Dashboard_Pengguna extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard__pengguna);
-        int images[] = {R.drawable.gambar2, R.drawable.gambar3,R.drawable.gambar4};
+        int images[] = {R.drawable.futsalsatu, R.drawable.futsaldua,R.drawable.futsaltiga};
         v_flipper = (ViewFlipper)findViewById(R.id.ImageSlider);
 
         for (int i =0; i<images.length; i++){

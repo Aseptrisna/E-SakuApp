@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">IDA RIAS</string>
+    <string name="app_name">FUTSAL 87</string>
     <string name="email">Email</string>
     <string name="psw">Password</string>
     <string name="register">Register</string>
     <string name="nama">Nama</string>
     <string name="nomor_headphone">Nomor Telpon</string>
-    <string name="selamat_datang">Selamat Datang.....</string>
+    <string name="selamat_datang">Selamat Datang</string>
     <string name="profile">Profile</string>
     <string name="pesan">Pesan</string>
+    <string name="copyright">\u00A9 IDA SALON 2021</string>
 </resources>
